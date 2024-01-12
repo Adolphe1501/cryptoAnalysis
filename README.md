@@ -86,6 +86,10 @@ docker-compose up
 You should get this on [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
 
+
+https://github.com/Adolphe1501/cryptoAnalysis/assets/100210115/f3d3ccd4-9ba7-4479-bdfa-5ae8e50e886f
+
+
 ##  Contributing
 
 Contributions are welcome! Here are several ways you can contribute:

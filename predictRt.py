@@ -13,7 +13,7 @@ def predictRealTime() :
         
     def get_last_message(topic):
         consumer = Consumer({
-        'bootstrap.servers': 'localhost:9092',
+        'bootstrap.servers': 'kafka:9092',
         'group.id': 'beforePredictionReaders',
         'auto.offset.reset': 'earliest'
     })

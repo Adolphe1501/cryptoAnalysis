@@ -5,45 +5,26 @@
     <h1 align="center">CRYPTOANALYSIS</h1>
 </p>
 <p align="center">
-    <em><code>► INSERT-TEXT-HERE</code></em>
+    <em><code> This project is a cryptocurrency market analysis project that uses historical and real time data to predict the future value over 1 day, 3 days, 7 days and 30 days.</code></em>
 </p>
 <p align="center">
 	<!-- Shields.io badges not used with skill icons. --><p>
 <p align="center">
-		<em>Developed with the software and tools below.</em>
+		<em>This project is not an investment consultancy and has been developed in conjunction with the software and tools below and more( Hadoop, Spark, Dash, ...).</em>
 </p>
 <p align="center">
 	<a href="https://skillicons.dev">
-		<img src="https://skillicons.dev/icons?i=fastapi,md,py,selenium,tensorflow&theme=light">
+		<img src="https://skillicons.dev/icons?i=fastapi,docker,kafka,py,tensorflow&theme=light">
 	</a></p>
 <hr>
 
-##  Quick Links
 
-> - [ Overview](#-overview)
-> - [ Features](#-features)
-> - [ Repository Structure](#-repository-structure)
-> - [ Modules](#-modules)
-> - [ Getting Started](#-getting-started)
->   - [ Installation](#-installation)
->   - [ Running cryptoAnalysis](#-running-cryptoAnalysis)
->   - [ Tests](#-tests)
-> - [ Project Roadmap](#-project-roadmap)
-> - [ Contributing](#-contributing)
-> - [ License](#-license)
-> - [ Acknowledgments](#-acknowledgments)
 
----
 
 ##  Overview
 
-<code>► INSERT-TEXT-HERE</code>
-
----
-
-##  Features
-
-<code>► INSERT-TEXT-HERE</code>
+<code> 
+Ce projet est une tentative de comprendre et de prédire les tendances du marché des cryptomonnaies en utilisant des techniques d’analyse de données avancées. Cependant, il est important de noter que les prédictions fournies par ce projet ne doivent pas être utilisées comme des conseils d’investissement. Les marchés des cryptomonnaies sont extrêmement volatils et imprévisibles, et il est toujours recommandé de faire ses propres recherches et de consulter un conseiller financier professionnel avant de prendre des décisions d’investissement.</code>
 
 ---
 
@@ -68,31 +49,6 @@
     └── start-zookeeper.sh
 ```
 
----
-
-##  Modules
-
-<details closed><summary>.</summary>
-
-| File                                                                                                                 | Summary                         |
-| ---                                                                                                                  | ---                             |
-| [start-zookeeper.sh](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/start-zookeeper.sh)               | <code>► INSERT-TEXT-HERE</code> |
-| [predictRt.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/predictRt.py)                           | <code>► INSERT-TEXT-HERE</code> |
-| [start-hadoop.sh](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/start-hadoop.sh)                     | <code>► INSERT-TEXT-HERE</code> |
-| [requirements.txt](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/requirements.txt)                   | <code>► INSERT-TEXT-HERE</code> |
-| [dashboardRt.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/dashboardRt.py)                       | <code>► INSERT-TEXT-HERE</code> |
-| [Dockerfile](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/Dockerfile)                               | <code>► INSERT-TEXT-HERE</code> |
-| [Dockerfile.hadoop-slave](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/Dockerfile.hadoop-slave)     | <code>► INSERT-TEXT-HERE</code> |
-| [start-kafka.sh](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/start-kafka.sh)                       | <code>► INSERT-TEXT-HERE</code> |
-| [prediction.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/prediction.py)                         | <code>► INSERT-TEXT-HERE</code> |
-| [Dockerfile.hadoop-master](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/Dockerfile.hadoop-master)   | <code>► INSERT-TEXT-HERE</code> |
-| [collectRtDataKafka.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/collectRtDataKafka.py)         | <code>► INSERT-TEXT-HERE</code> |
-| [collectMonthlyDataHdfs.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/collectMonthlyDataHdfs.py) | <code>► INSERT-TEXT-HERE</code> |
-| [docker-compose.yml](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/docker-compose.yml)               | <code>► INSERT-TEXT-HERE</code> |
-| [main.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/main.py)                                     | <code>► INSERT-TEXT-HERE</code> |
-| [collectHistDataHdfs.py](https://github.com/Adolphe1501/cryptoAnalysis.git/blob/master/collectHistDataHdfs.py)       | <code>► INSERT-TEXT-HERE</code> |
-
-</details>
 
 ---
 
@@ -102,7 +58,7 @@
 
 Ensure you have the following dependencies installed on your system:
 
-* **Python**: `version x.y.z`
+* **Docker with docker-compose ( Docker desktop maybe a better fit )**: `version >= 4.12`
 
 ###  Installation
 
@@ -118,37 +74,17 @@ git clone https://github.com/Adolphe1501/cryptoAnalysis.git
 cd cryptoAnalysis
 ```
 
-3. Install the dependencies:
-
-```sh
-pip install -r requirements.txt
-```
 
 ###  Running cryptoAnalysis
 
-Use the following command to run cryptoAnalysis:
+Use the following command to run cryptoAnalysis (Make sure to have enough Memory allocated to your containers for model updating (recommended : 10Gb)):
 
 ```sh
-python main.py
+docker-compose build 
+docker-compose up
 ```
+You should get this on [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
-###  Tests
-
-To execute tests, run:
-
-```sh
-pytest
-```
-
----
-
-##  Project Roadmap
-
-- [X] `► INSERT-TASK-1`
-- [ ] `► INSERT-TASK-2`
-- [ ] `► ...`
-
----
 
 ##  Contributing
 
@@ -193,10 +129,3 @@ This project is protected under the [SELECT-A-LICENSE](https://choosealicense.co
 
 ---
 
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
-
-[**Return**](#-quick-links)
-
----

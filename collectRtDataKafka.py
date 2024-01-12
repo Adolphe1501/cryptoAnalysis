@@ -7,7 +7,7 @@ def collectRtdatakafka():
 
     # Configuration du producteur Kafka pour les données en temps réel
     conf = {
-        'bootstrap.servers': 'localhost:9092',  # Remplacez par l'adresse de votre broker Kafka
+        'bootstrap.servers': 'kafka:9092',  # Remplacez par l'adresse de votre broker Kafka
         'message.max.bytes': 10000000  # Ajustez cette valeur en fonction de la taille de vos messages
     }
 

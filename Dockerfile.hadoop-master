@@ -1,0 +1,10 @@
+# Utilisez l'image de base
+FROM totofunku/bigdata-cours:latest
+
+# Installez le serveur SSH
+RUN apt-get update && apt-get install -y openssh-server
+
+# Configurez le serveur SSH pour permettre les connexions root (si nécessaire)
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+CMD /usr/local/start-hadoop.sh

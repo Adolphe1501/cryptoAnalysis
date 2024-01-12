@@ -1,0 +1,70 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8050:8050
+    networks:
+      - hadoop-network
+    depends_on:
+      - hadoop-master
+      - kafka
+
+  hadoop-master:
+    build:
+      context: .
+      dockerfile: Dockerfile.hadoop-master
+    ports:
+      - 50070:50070
+      - 8088:8088
+      - 7077:7077
+      - 16010:16010
+    networks:
+      - hadoop-network
+    hostname: hadoop-master
+    volumes:
+      - type: bind
+        source: ./start-hadoop.sh
+        target: /usr/local/start-hadoop.sh
+        read_only: true
+    # command: ["/bin/bash", "-c", "/usr/local/bin/start-hadoop.sh && tail -f /dev/null"]
+
+  hadoop-slave1:
+    build:
+      context: .
+      dockerfile: Dockerfile.hadoop-slave
+    ports:
+      - 8040:8042
+    networks:
+      - hadoop-network
+    hostname: hadoop-slave1
+
+  hadoop-slave2:
+    build:
+      context: .
+      dockerfile: Dockerfile.hadoop-slave
+    ports:
+      - 8041:8042
+    networks:
+      - hadoop-network
+    hostname: hadoop-slave2
+
+
+  kafka:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '9092:9092'
+    networks:
+      - hadoop-network
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+networks:
+  hadoop-network:
+    driver: bridge
